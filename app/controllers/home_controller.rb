@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 			redirect_to '/log-in'
 		else
 			@posts = Post.all
+			@post = Post.new
 			@user = current_user
 		end
 	end

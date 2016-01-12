@@ -1,7 +1,18 @@
+<div class ='newpost'>
+	<%= form_for @post do |p| %>
+		<%= p.label :title %>
+		<%= p.text_field :title %>
+		<%= p.label :content %>
+		<%= p.text_area :content %>
+		<%= p.hidden_field :user_id, :value => @user.id %>
+		<%= p.submit %>
+	<% end %>
+</div>
+
 <% @posts.each do |p| %>
 	<div class = 'posts'>
-		User: <%= p.user.username %> <br>
-		Title: <%= p.title %> <br>
+		User: <%= link_to p.user.username, p.user %> <br>
+		Title: <%= link_to p.title, p %> <br>
 		Content: <%= p.content %> <br>
 	</div>
 <% end %>
