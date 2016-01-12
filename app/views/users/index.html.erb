@@ -1,9 +1,13 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+ 
+<% if current_user %>
+<h2> Hello <%= current_user.username %> </h2>
+<% end %>
 
 <% @users.each do |user| %>
 	<div class = 'userinfo'>
-		<h4>Username:</h4> <%= user.username %>
+		<h4>Username:</h4> <%= link_to user.username, user %>
 		<h4>First Name:</h4> <%= user.fname %>
 		<h4>Last Name:</h4> <%= user.lname %>
 	</div>
