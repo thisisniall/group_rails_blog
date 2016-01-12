@@ -5,6 +5,11 @@
 	<h4>Username:</h4> <%= @user.username %>
 	<h4>First Name:</h4> <%= @user.fname %>
 	<h4>Last Name:</h4> <%= @user.lname %>
+	<% @post.each do |p| %>
+		<h4><%= p.title %></h4>
+		<p><%= p.content %></p>
+		<br>
+	<% end %>
 </div>
 
 <%= link_to "Edit User Info", edit_user_path %>
