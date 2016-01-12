@@ -1,0 +1,7 @@
+<% @posts.each do |p| %>
+	<div class = 'posts'>
+		User: <%= p.user.username %> <br>
+		Title: <%= p.title %> <br>
+		Content: <%= p.content %> <br>
+	</div>
+<% end %>

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		if @user && @user.password == params[:password]
 			session[:user_id] = @user.id
 			flash[:notice] = "You've been signed in!"
-			redirect_to current_user
+			redirect_to user_path @user
 		else
 			flast[:alert] = "Username and password do not match our records."
 			redirect_to log_in_path
