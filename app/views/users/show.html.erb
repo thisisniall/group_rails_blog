@@ -13,3 +13,9 @@
 </div>
 
 <%= link_to "Edit User Info", edit_user_path %>
+
+Post.where(user_id == @user.id).last(10)
+
+User.find(id).posts
+
+@user.posts each do

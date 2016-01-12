@@ -4,6 +4,24 @@
 User: <%= @post.user.username %> <br>
 Title: <%= @post.title %> <br>
 Content: <%= @post.content %> <br>
+Comments: <% @comments.each do |c| %> <br>
+			<%= c.user.username %> <br>
+			<%= c.comment %> <br>
+		  <% end %>
+
+
 
 <h4><%= link_to "Edit Post", edit_post_path %></h4>
 <h4><%= link_to "Delete Post", @post, method: :delete %> </h4>
+
+<% if current_user %>
+	<strong> Comment: </strong>
+		<%= form_tag '/newcomment' do %>
+		<%= label_tag(:comment) %>
+		<%= text_area_tag(:comment) %>
+		<%= hidden_field_tag(:user_id, :value => current_user.id) %>
+		<%= hidden_field_tag(:post_id, :value => @post.id) %> 
+		<%= submit_tag "Comment!" %>
+	<% end %>
+<% end %>
+
