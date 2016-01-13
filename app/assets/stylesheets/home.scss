@@ -20,9 +20,11 @@
 #addpost {
 	padding: 15px;
 	clear: both;
-	border: 1px solid black;
+	border: 1px solid #ffffff;
 	height: 165px;
-	margin-top: 10px;
+	margin-top: 15px;
+	background-color: #ffffff;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .feed {
@@ -32,10 +34,12 @@
 
 .posts {
 	width: 90%;
-	border: 1px solid black;
-	padding: 15px;
-	margin-bottom: 10px;
+	border: 1px solid #ffffff;
+	padding: 20px;
+	margin-bottom: 15px;
 	float: right;
+	background-color: #ffffff;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .top_space {
@@ -43,9 +47,11 @@
 }
 
 #profile_card {
-	border: 1px solid #000000;
+	border: 1px solid #ffffff;
 	width: 300px;
 	padding: 15px;
+	background-color: #ffffff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #user_img {

@@ -1,23 +1,24 @@
-<div id="useredit">
-	<h1>Edit User</h1>
-	<%= form_for @user do |f|%>
-		<%= f.label :username %>
-		<%= f.text_field :username, :class => "user_input"%>
-		<br>
-		<br>
-		<%= f.label :fname %>
-		<%= f.text_field :fname, :class => "user_input"%>
-		<br>
-		<br>
-		<%= f.label :lname %>
-		<%= f.text_field :lname, :class => "user_input"%>
-		<br>
-		<br>
-		<%= f.label :password %>
-		<%= f.password_field :password, :class => "user_input"%>
-		<br>
-		<br>
-		<%= f.submit :class => "button" %>
-	<% end %>
-	
+<div id="page">
+	<div id="useredit">
+		<h1>Edit User</h1>
+		<%= form_for @user do |f|%>
+			<%= f.label :username %>
+			<%= f.text_field :username, :class => "user_input"%>
+			<br>
+			<br>
+			<%= f.label :fname %>
+			<%= f.text_field :fname, :class => "user_input"%>
+			<br>
+			<br>
+			<%= f.label :lname %>
+			<%= f.text_field :lname, :class => "user_input"%>
+			<br>
+			<br>
+			<%= f.label :password %>
+			<%= f.password_field :password, :class => "user_input"%>
+			<br>
+			<br>
+			<%= f.submit :class => "button" %>
+		<% end %>
+	</div>
 </div>
