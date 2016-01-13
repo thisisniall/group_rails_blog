@@ -1,5 +1,27 @@
 <div id="home_page">
 	<div class='lcolumn'>
+		<div id="profile_card">
+			<div id="user_img">
+			</div>
+			<div id="user_name">
+				<h2 class="snug"><%= current_user.username %></h2>
+				<p class="snug"><%= current_user.fname %> <%= current_user.lname %></p>
+			</div>
+			<div id="user_stats">
+				<div class="user_stat">
+					<p class="snug">Posts</p>
+					<p class="snug"><%= current_user.posts.count %></p>
+				</div>
+				<div class="user_stat">
+					<p class="snug">Following</p>
+					<p class="snug">??</p>
+				</div>
+				<div class="user_stat">
+					<p class="snug">Followers</p>
+					<p class="snug">??</p>
+				</div>
+			</div>
+		</div>
 		<div id="addpost">
 			<%= form_for @post do |p| %>
 				<%= p.label :title %>
@@ -18,8 +40,11 @@
 			<div class='posts'>
 				<h2 class="snug underline"><%= link_to p.title, p %></h2>
 				<h3 class="snug">by <%= link_to p.user.username, p.user %></h3>
+				<!-- calls the time_ago_in_words function and passes it the created_at attribute of the post being rendered -->
+				<p class="snug"> <%= time_ago_in_words(p.created_at) %> </p>
 				<p> <%= p.content %> </p>
 				<p><%= p.comments.count %> Comments</p>
+
 			</div>
 		<% end %>
 	</div>
