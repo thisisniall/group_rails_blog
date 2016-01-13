@@ -1,0 +1,21 @@
+class RelationshipsController < ApplicationController
+	def create
+		@relationship = Relationship.new(follower_id: current_user.id, followed_id: params[:id])
+		@relationship.save
+		redirect_to '/'
+	end
+
+	def destroy
+		@relationshipend = Relationship.find(follower_id: current_user.id, followed_id: params[:id])
+		@relationshipend.destroy
+		redirect_to '/'
+	end
+
+
+	private
+
+	def relationship_params
+		params.require(:relationship).permit(:follower_id, :followed_id)
+	end
+
+end

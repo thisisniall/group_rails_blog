@@ -1,5 +1,16 @@
 <div id="home_page">
 	<div class='lcolumn'>
+	<div id = 'followerslist'>
+		PEOPLE YOU FOLLOW:
+		<%@user.followed.each do |s| %>
+			<%= s.username %>
+		<% end %>
+		<br>
+		PEOPLE FOLLOWING YOU:
+		<% @user.followers.each do |s| %>
+			<%= s.username %>
+		<% end %>
+	</div>
 		<div id="addpost">
 			<%= form_for @post do |p| %>
 				<%= p.label :title %>

@@ -5,8 +5,12 @@ post '/log-in' => 'sessions#create'
 get 'log-out' => 'sessions#destroy'
 post '/newcomment' => 'posts#show'
 
+post '/follow/:id' => 'relationships#create', as: :follow
+post '/unfollow/:id' => 'relationships#destroy', as: :unfollow
+
 resources :users
 resources :posts
+# resources :relationships
 
 root 'home#index'
 

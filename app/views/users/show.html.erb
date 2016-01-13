@@ -10,6 +10,15 @@
 		<% end %>
 	</div>
 
+<!--users page follow/unfollow-->
+<% if current_user.id != @user.id %>
+	<% if Relationship.where(followed_id: @user_id, follower_id: current_user.id).first == nil %>
+ 		<%=link_to("follow", follow_path(@user), method: :post)%>
+	<% else %>
+	    <%=link_to("unfollow", unfollow_path(@user), method: :delete)%>
+	<% end %>
+<%end%>	
+<!--end -->
 
 <% if current_user.id == @user.id %>
 	<%= link_to "Edit User Info", edit_user_path %>
