@@ -6,9 +6,20 @@
 	margin: 0 auto;
 }
 
-.new_post {
-	width: 50%;
+.lcolumn {
+	width: 49%;
 	float: left;
+	border: 1px solid;
+}
+
+.text_area {
+	font-size: 15px;
+	border: 1px solid #000000;
+	float: right;
+}
+
+#addpost {
+	padding: 15px;
 }
 
 .feed {
@@ -17,9 +28,13 @@
 }
 
 .posts {
-	width: 70%;
+	width: 90%;
 	border: 1px solid black;
-	padding: 10px;
+	padding: 15px;
 	margin-bottom: 10px;
 	float: right;
+}
+
+.top_space {
+	margin-top: 10px;
 }
