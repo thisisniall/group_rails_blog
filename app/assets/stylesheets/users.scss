@@ -1,3 +1,45 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.userinfo {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.user_posts {
+	padding-top: 20px;
+}
+
+.user_post {
+	padding-bottom: 10px;
+}
+
+label {
+	font-size: 20px;
+}
+
+.user_input {
+	font-size: 18px;
+	border: 1px solid black;
+	float: right;
+	padding: 2px;
+}
+
+#useredit {
+	width: 33%;
+	margin: 0 auto;
+}
+
+#useredit form {
+	min-width: 201px;
+}
+
+.button {
+	border: 2px solid black;
+	padding: 2px;
+	font-size: 13px;
+	background-color: white;
+	float: right;
+	font-weight: 700;
+}
+

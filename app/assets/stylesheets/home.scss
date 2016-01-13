@@ -1,3 +1,25 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#home_page {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.new_post {
+	width: 50%;
+	float: left;
+}
+
+.feed {
+	width: 50%;
+	float: right;
+}
+
+.posts {
+	width: 70%;
+	border: 1px solid black;
+	padding: 10px;
+	margin-bottom: 10px;
+	float: right;
+}
