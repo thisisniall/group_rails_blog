@@ -18,21 +18,27 @@
 
 
 <% if current_user %>
-<!-- flash[:notice] = "You are currently logged in as " <%= current_user.username %> -->
-<nav>
-	<ul>
-		<li> <%= link_to "Home", '/' %>
-		<li> <%= link_to "Account Settings", edit_user_path(current_user) %> </li>
-		<li> <%= link_to "Log Out", '/log-out' %> </li>
-	</ul>
-</nav>
+<header>
+	<p>
+		You are currently logged in as <%= current_user.username %>
+	</p>	
+	<nav>
+		<ul>
+			<li> <%= link_to "Home", '/' %></li>
+			<li> <%= link_to "Account Settings", edit_user_path(current_user) %> </li>
+			<li> <%= link_to "Log Out", '/log-out' %> </li>
+		</ul>
+	</nav>
+</header>
 <%else %>
-<nav>
-	<ul>
-		<li> <%= link_to "Log In", log_in_path %> </li>
-		<li> <%= link_to "Sign Up", new_user_path %> </li>
-	</ul>
-</nav>
+<header>
+	<nav>
+		<ul>
+			<li> <%= link_to "Log In", log_in_path %> </li>
+			<li> <%= link_to "Sign Up", new_user_path %> </li>
+		</ul>
+	</nav>
+</header>
 <% end %>
 
 
