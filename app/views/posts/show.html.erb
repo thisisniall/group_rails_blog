@@ -1,27 +1,33 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div id="posts_page">
+	<h1><%= @post.title %></h1>
+	<p class="subtitle">by <%= @post.user.username %></p>
+	<p id="content"> <%= @post.content %><p>
 
-User: <%= @post.user.username %> <br>
-Title: <%= @post.title %> <br>
-Content: <%= @post.content %> <br>
-Comments: <% @comments.each do |c| %> <br>
-			<%= c.user.username %> <br>
-			<%= c.comment %> <br>
-		  <% end %>
-
-
-
-<h4><%= link_to "Edit Post", edit_post_path %></h4>
-<h4><%= link_to "Delete Post", @post, method: :delete %> </h4>
-
-<% if current_user %>
-	<strong> Comment: </strong>
-		<%= form_tag '/newcomment' do %>
-		<%= label_tag(:comment) %>
-		<%= text_area_tag(:comment) %>
-		<%= hidden_field_tag(:user_id, :value => current_user.id) %>
-		<%= hidden_field_tag(:post_id, :value => @post.id) %> 
-		<%= submit_tag "Comment!" %>
+	<div id="comments">
+		<h4>Comments </h4> 
+		<% @comments.each do |c| %> 
+			<div>
+				<p class="snug subtitle"><%= c.user.username %><p>
+				<p class="snug"><%= c.comment %></p>
+			</div>
+		<% end %>
+	</div>
+	<% if current_user %>
+		<!-- creates a form for a new comment -->
+		<%= form_for([@post, @post.comments.build]) do |f| %>
+			<!-- sets the user_id equal to the id of the current_user -->
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<!-- sets the post_id equal to the id of @post, which is defined in the controller -->
+			<%= f.hidden_field :post_id, :value => @post.id %>
+			<%= f.label :comment, :value => "Add Comment" %>
+			<%= f.text_field :comment %>
+			<%= f.submit :value => "Create"%>
+		<% end %>
 	<% end %>
-<% end %>
+
+	<% if current_user.id == @user.id %>
+		<h4><%= link_to "Edit Post", edit_post_path(@post)%></h4>
+		<h4><%= link_to "Delete Post", @post, method: :delete %> </h4>
+	<% end %>
+</div>
 

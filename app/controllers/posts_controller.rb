@@ -12,9 +12,9 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+    	@user = User.where(id: @post.user_id).first
 		## would be in the comments controller if we were seperating it out
 		@comments = @post.comments
-		@comment = Comment.new
   	end
 
 	def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		if @post.save
-			redirect_to posts_path
+			redirect_to '/'
 		else
 			redirect_to new_post_path
 		end
@@ -43,9 +43,10 @@ class PostsController < ApplicationController
 
 	def newcomment
 		# @postid = params[:post_id][:value]
+		@post = Post.find(params[:id])
 		@comment = Comment.create(comment_params)
 		if @comment.save
-			redirect_to :back
+			redirect_to '/'
 		else
 			redirect_to '/'
 		end

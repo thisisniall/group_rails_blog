@@ -1,18 +1,24 @@
-<div class ='newpost'>
-	<%= form_for @post do |p| %>
-		<%= p.label :title %>
-		<%= p.text_field :title %>
-		<%= p.label :content %>
-		<%= p.text_area :content %>
-		<%= p.hidden_field :user_id, :value => @user.id %>
-		<%= p.submit %>
-	<% end %>
-</div>
-
-<% @posts.each do |p| %>
-	<div class = 'posts'>
-		User: <%= link_to p.user.username, p.user %> <br>
-		Title: <%= link_to p.title, p %> <br>
-		Content: <%= p.content %> <br>
+<div id="home_page">
+	<div class ='new_post'>
+		<%= form_for @post do |p| %>
+			<h3 class="snug"><%= p.label :title %></h3>
+			<p class="snug"><%= p.text_field :title %><p>
+			<h3 class="snug"><%= p.label :content %></h3>
+			<%= p.text_area :content %>
+			<%= p.hidden_field :user_id, :value => @user.id %>
+			<br>
+			<br>
+			<%= p.submit %>
+		<% end %>
 	</div>
-<% end %>
+	<div class='feed'>
+		<% @posts.each do |p| %>
+			<div class = 'posts'>
+				<h2 class="snug"><%= link_to p.user.username, p.user %></h2>
+				
+				<h3 class="snug"><u><%= link_to p.title, p %></u></h3>
+				<p> <%= p.content %> </p>
+			</div>
+		<% end %>
+	</div>
+</div>
