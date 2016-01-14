@@ -6,11 +6,10 @@ class RelationshipsController < ApplicationController
 	end
 
 	def destroy
-		@relationshipend = Relationship.find(follower_id: current_user.id, followed_id: params[:id])
+		@relationshipend = Relationship.find_by(follower_id: current_user.id, followed_id: params[:id])
 		@relationshipend.destroy
 		redirect_to '/'
 	end
-
 
 	private
 
