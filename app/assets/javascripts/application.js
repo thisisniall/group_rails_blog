@@ -17,11 +17,13 @@
 
 
 $(document).ready(function(){
+	
 
-	$('.flash').fadeOut(3000);
+	$('.flash').fadeOut(5000);
 
 	$('#delete_button').on('click', function(){
 		$('#modal').fadeIn(500);
 	});
+
 
 });

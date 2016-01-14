@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def verify_user
     @user = User.find(params[:id])
-    if @user.password == params[:password1]
+    if @user.password == params[:password1] && params[:password1] == params[:password2]
       destroy
     else
       flash[:alert] = "Passwords don't match or password entered doesn't match our records"
