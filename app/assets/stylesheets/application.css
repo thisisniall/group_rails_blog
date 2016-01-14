@@ -80,3 +80,12 @@ nav ul li a {
 	margin-left: auto;
 	padding-top: 90px; 
 }
+
+.flash {
+	position: absolute;
+	z-index: 100;
+}
+
+.round {
+	border-radius: 3px;
+}

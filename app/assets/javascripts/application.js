@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+
+	$('.flash').fadeOut(3000);
+
+	$('#delete_button').on('click', function(){
+		$('#modal').fadeIn(500);
+	});
+
+});

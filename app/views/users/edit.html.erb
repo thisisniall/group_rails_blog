@@ -1,5 +1,22 @@
 <div id="page">
+	<div id="modal">
+	</div>
 	<div id="useredit">
+		<div id="delete_confirm">
+			<p>
+				Are you sure you want to delete your account?
+			</p>
+			<p>
+				If so, please enter your password
+			</p>
+			<%= form_for(@user, method: :delete) do |d| %>
+				<%= d.label :password1 %>
+				<%= d.password_field :password1 %>
+				<br> 
+				<br>
+				<%= d.submit :class => "delete_button"%>
+			<% end %>
+		</div>
 		<h1>Edit User</h1>
 		<%= form_for @user do |f|%>
 			<%= f.label :username %>
@@ -20,5 +37,6 @@
 			<br>
 			<%= f.submit :class => "button" %>
 		<% end %>
+		<button id="delete_button" class="button">Delete User</button>
 	</div>
 </div>

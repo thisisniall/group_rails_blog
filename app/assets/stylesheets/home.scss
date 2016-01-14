@@ -9,6 +9,7 @@
 .lcolumn {
 	width: 49%;
 	float: left;
+	position: fixed;
 }
 
 .text_area {
@@ -22,6 +23,7 @@
 	clear: both;
 	border: 1px solid #ffffff;
 	height: 165px;
+	width: 70%;
 	margin-top: 15px;
 	background-color: #ffffff;
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);

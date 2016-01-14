@@ -32,12 +32,23 @@ class UsersController < ApplicationController
     @post = @user.posts
   end
 
+  def verify_user
+    @user = User.find(params[:id])
+    if @user.password == params[:password1]
+      destroy
+    else
+      flash[:alert] = "Passwords don't match or password entered doesn't match our records"
+      redirect_to edit_user_path
+    end
+  end
+
   def destroy
   	@user = User.find(params[:id])
-  	if @user.destroy
-  	else
-  	end
-  	redirect_to users_path
+    @user.destroy
+    session[:user_id] = nil
+    current_user = nil
+    flash[:notice] = "Account Deleted"
+    redirect_to '/'
   end
 
     private

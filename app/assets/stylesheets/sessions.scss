@@ -2,19 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #login {
-	width: 50%;
+	width: 30%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 30vh;
+	margin-top: 20vh;
+	background-color: #ffffff;
+	padding: 15px;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 #login h1 {
 	text-align: center;
 }
 
-#login form {
-	text-align: center;
-	width: 480px;
+#login form[input] {
+	font-size: 18px;
+	border: 1px solid black;
+	float: right;
+	padding: 2px;
 }
 
 .login_button {
