@@ -15,8 +15,6 @@ class PostsController < ApplicationController
     	@user = User.where(id: @post.user_id).first
 		## would be in the comments controller if we were seperating it out
 		@comments = @post.comments
-		@comment = Comment.find(params[:id])
-		@u = User.where(id: @comment.user_id).first
   	end
 
 	def new
@@ -41,17 +39,6 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to posts_path
-	end
-
-	def newcomment
-		# @postid = params[:post_id][:value]
-		@post = Post.find(params[:id])
-		@comment = Comment.create(comment_params)
-		if @comment.save
-			redirect_to '/'
-		else
-			redirect_to '/'
-		end
 	end
 	
 	def time_ago_in_words(from_time)

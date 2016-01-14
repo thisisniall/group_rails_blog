@@ -20,12 +20,16 @@
 	</div>
 	<div id="comments">
 		<h4>Comments </h4> 
+
 		<% @comments.each do |c| %> 
-			<div>
-				<p class="snug subtitle"><%= c.post.user.username %></p>
-				<p class="snug"><%= c.comment %></p>
-				<p class="snug"><%= time_ago_in_words(c.created_at) %></p>
-			</div>
+<!-- 		The below if loop is necessary to avoid a conflict where our use of .build creates - but does not save to the database a premature comment - which comments.each nevertheless attempts to load. this comment has values of nil for all values, making every method break. -->
+			<% if @comments.last != c %>
+				<div>
+					<p class="snug subtitle"><%= c.user.username %></p>
+					<p class="snug"><%= c.comment %></p>
+					<p class="snug"><%= time_ago_in_words(c.created_at) +' ago' %></p>
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 	<% if current_user.id == @user.id %>
