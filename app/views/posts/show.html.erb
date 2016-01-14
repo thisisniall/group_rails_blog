@@ -14,7 +14,7 @@
 				<%= f.hidden_field :post_id, :value => @post.id %>
 				<%= f.label :comment, :value => "Add Comment" %>
 				<%= f.text_field :comment %>
-				<%= f.submit :value => "Create"%>
+				<%= f.submit :value => "Create" %>
 			<% end %>
 		<% end %>
 	</div>
@@ -22,8 +22,9 @@
 		<h4>Comments </h4> 
 		<% @comments.each do |c| %> 
 			<div>
-				<p class="snug subtitle"><%= c.post.user.username %><p>
+				<p class="snug subtitle"><%= c.post.user.username %></p>
 				<p class="snug"><%= c.comment %></p>
+				<p class="snug"><%= time_ago_in_words(c.created_at) %></p>
 			</div>
 		<% end %>
 	</div>

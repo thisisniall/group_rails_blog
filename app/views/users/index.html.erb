@@ -1,10 +1,10 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
-<% @users.each do |u| %>
-	<div class = 'userinfo'>
-		<h4>Username:</h4> <%= link_to u.username, u %>
-		<h4>First Name:</h4> <%= u.fname %>
-		<h4>Last Name:</h4> <%= u.lname %>
-	</div>
-<% end %>
+<h1>All Users</h1>
+<div id="page">
+	<% @users.each do |u| %>
+		<div class = 'userinfo'>
+			<h4>Username:</h4> <%= link_to u.username, u %>
+			<h4>First Name:</h4> <%= u.fname %>
+			<h4>Last Name:</h4> <%= u.lname %>
+		</div>
+	<% end %>
+</div>

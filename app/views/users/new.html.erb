@@ -1,4 +1,13 @@
 <div id="page">
+	<% if @user.errors.full_messages.any? %>
+				<ul>
+					<% @user.errors.full_messages.each do |e| %>
+						<li><%= e %></li>
+						<br>
+					<% end %>
+				</ul>
+
+		<% end %>
 	<div id="signup">
 		<h1>Sign Up</h1>
 		<%= form_for @user do |f|%>
@@ -6,16 +15,20 @@
 			<%= f.text_field :username, :class => "user_input" %>
 			<br>
 			<br>
-			<%= f.label :fname %>
+			<%= f.label :fname, "First Name" %>
 			<%= f.text_field :fname, :class => "user_input" %>
 			<br>
 			<br>
-			<%= f.label :lname %>
+			<%= f.label :lname, "Last Name" %>
 			<%= f.text_field :lname, :class => "user_input" %>
 			<br>
 			<br>
 			<%= f.label :password %>
 			<%= f.password_field :password, :class => "user_input" %>
+			<br>
+			<br>
+			<%= f.label :password, "Confirm Password" %>
+			<%= f.password_field :password_confirmation, :class => "user_input" %>
 			<br>
 			<br>
 			<%= f.submit :class => "button" %>

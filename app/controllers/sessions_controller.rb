@@ -20,4 +20,8 @@ class SessionsController < ApplicationController
 		flash[:notice] = "You've logged out."
 		redirect_to log_in_path
 	end
+
+	def time_ago_in_words(from_time)
+    	distance_of_time_in_words(from_time, Time.now)
+  	end
 end
