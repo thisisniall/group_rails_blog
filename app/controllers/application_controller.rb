@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
     # @current_user ||= User.find(1)
   end
+
+  def time_ago_in_words(from_time)
+    distance_of_time_in_words(from_time, Time.now)
+  end
 end

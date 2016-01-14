@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .userinfo {
 	width: 70%;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3vh;
+	background-color: #ffffff;
+	padding: 20px;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
 }
 
 .user_posts {
@@ -11,7 +16,14 @@
 }
 
 .user_post {
-	padding-bottom: 10px;
+	width: 70%;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	background-color: #ffffff;
+	margin-top: 20px;
+
 }
 
 label {
@@ -83,8 +95,8 @@ label {
 }
 
 #signup {
-	width: 33%;
-	height: 315px;
+	width: 40%;
+	height: 345px;
 	padding: 20px;
 	font-size: 20px;
 	background-color: #ffffff;
@@ -94,3 +106,11 @@ label {
 	margin-top: 15vh;
 }
 
+#error {
+	width: 33%;
+	padding: 20px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	margin-left: auto;
+	margin-right: auto;
+}

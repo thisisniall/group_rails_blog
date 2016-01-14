@@ -1,8 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
-<% @posts.each do |p| %>
-	User: <%= p.user.username %> <br>
-	Title: <%= p.title %> <br>
-	Content: <%= p.content %> <br>
-<% end %>
+<h1>All the Posts</h1>
+<div id="page">
+	<% @posts.each do |p| %>
+		User: <%= p.user.username %>
+		<br>
+		Title: <%= p.title %>
+		<br>
+		Content: <%= p.content %>
+		<br>
+	<% end %>
+</div>

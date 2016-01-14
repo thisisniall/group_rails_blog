@@ -15,6 +15,8 @@ class PostsController < ApplicationController
     	@user = User.where(id: @post.user_id).first
 		## would be in the comments controller if we were seperating it out
 		@comments = @post.comments
+		@comment = Comment.find(params[:id])
+		@u = User.where(id: @comment.user_id).first
   	end
 
 	def new
@@ -51,6 +53,10 @@ class PostsController < ApplicationController
 			redirect_to '/'
 		end
 	end
+	
+	def time_ago_in_words(from_time)
+    	distance_of_time_in_words(from_time, Time.now)
+  	end
 
 	private
 
@@ -61,4 +67,6 @@ class PostsController < ApplicationController
 	def comment_params
 		params.require(:comment).permit(:comment, :user_id, :post_id)
 	end
+
+
 end
