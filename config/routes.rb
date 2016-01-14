@@ -4,6 +4,7 @@ get '/log-in' => 'sessions#new'
 post '/log-in' => 'sessions#create'
 get 'log-out' => 'sessions#destroy'
 post '/newcomment' => 'posts#show'
+post 'verify_user' => 'user#edit'
 
 post '/follow/:id' => 'relationships#create', as: :follow
 post '/unfollow/:id' => 'relationships#destroy', as: :unfollow

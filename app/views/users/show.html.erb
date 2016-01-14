@@ -1,12 +1,17 @@
-<div class = 'userinfo'>
-	<h1 class="snug"> <%= @user.username %></h1>
-	<h3 class="snug"> <%= @user.fname %> <%= @user.lname %></h3>
-	<div class="user_posts">
-		<% @post.each do |p| %>
-			<div class="user_post">
-				<h4 class="snug"><%= link_to p.title, p %></h4>
-				<p class="snug"><%= p.content %></p>
-			</div>
+<div id="page">
+	<div class = 'userinfo'>
+		<h1 class="snug"> <%= @user.username %></h1>
+		<h3 class="snug"> <%= @user.fname %> <%= @user.lname %></h3>
+		<div class="user_posts">
+			<% @post.each do |p| %>
+				<div class="user_post">
+					<h4 class="snug"><%= link_to p.title, p %></h4>
+					<p class="snug"><%= p.content %></p>
+				</div>
+			<% end %>
+		</div>
+		<% if current_user.id == @user.id %>
+				<%= link_to "Edit User Info", edit_user_path %>
 		<% end %>
 	</div>
 

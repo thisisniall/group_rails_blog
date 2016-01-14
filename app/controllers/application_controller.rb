@@ -10,5 +10,6 @@ class ApplicationController < ActionController::Base
   	# checks to see if session exists, if so, loads user
   	# and saves into @user instance variable
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # @current_user ||= User.find(1)
   end
 end

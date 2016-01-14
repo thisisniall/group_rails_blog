@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new(params[:user])
+  	@user = User.new(user_params)
   	if @user.save
   		redirect_to '/'
   	else
@@ -33,12 +33,23 @@ class UsersController < ApplicationController
     @relationship = Relationship.new
   end
 
+  def verify_user
+    @user = User.find(params[:id])
+    if @user.password == params[:password1]
+      destroy
+    else
+      flash[:alert] = "Passwords don't match or password entered doesn't match our records"
+      redirect_to edit_user_path
+    end
+  end
+
   def destroy
   	@user = User.find(params[:id])
-  	if @user.destroy
-  	else
-  	end
-  	redirect_to users_path
+    @user.destroy
+    session[:user_id] = nil
+    current_user = nil
+    flash[:notice] = "Account Deleted"
+    redirect_to '/'
   end
 
     private

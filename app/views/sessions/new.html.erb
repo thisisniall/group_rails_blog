@@ -1,8 +1,14 @@
-<h1>Log In </h1>
-<%= form_tag log_in_path do %>
-	<%=label_tag(:username) %>
-	<%=text_field_tag(:username) %>
-	<%=label_tag(:password) %>
-	<%=password_field_tag(:password) %>
-	<%= submit_tag "Log In" %>
-<% end %>
+<div id="page">
+	<div id="login">
+		<h1>Log In</h1>
+		<%= form_tag log_in_path do %>
+			<%=label_tag(:username) %>
+			<%=text_field_tag(:username) %>
+			<br>
+			<%=label_tag :password %>
+			<%=password_field_tag(:password) %>
+			<br>
+			<%= submit_tag "Log In", :class => "login_button"%>
+		<% end %>
+	</div>
+</div>

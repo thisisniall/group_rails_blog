@@ -27,7 +27,13 @@ label {
 
 #useredit {
 	width: 33%;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20vh;
+	background-color: #ffffff;
+	padding: 20px;
+	height: 300px;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 #useredit form {
@@ -42,5 +48,46 @@ label {
 	float: right;
 	font-weight: 700;
 	clear: both;
+}
+
+.delete_button {
+	border: 2px solid black;
+	padding: 2px;
+	font-size: 13px;
+	background-color: white;
+	float: right;
+	font-weight: 700;
+	clear: both;
+	margin-top: 10px;
+}
+
+#modal {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 800px;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+#delete_confirm {
+	width: 500px;
+	height: 200px;
+	background-color: #ffffff;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
+	padding: 20px;
+}
+
+#signup {
+	width: 33%;
+	height: 315px;
+	padding: 20px;
+	font-size: 20px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 15vh;
 }
 
