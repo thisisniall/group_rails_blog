@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @post = @user.posts
+    @relationship = Relationship.new
   end
 
   def verify_user
