@@ -1,30 +1,32 @@
 <div id="page">
-	<h1><%= @post.title %></h1>
-	<p class="subtitle">by <%= @post.user.username %></p>
-	<p id="content"> <%= @post.content %><p>
-
+	<div id="post_page">
+		<h1><%= @post.title %></h1>
+		<p class="subtitle">by <%= @post.user.username %></p>
+		<p id="content"> <%= @post.content %><p>
+	</div>
+	<div id="new_comment">
+		<% if current_user %>
+			<!-- creates a form for a new comment -->
+			<%= form_for([@post, @post.comments.build]) do |f| %>
+				<!-- sets the user_id equal to the id of the current_user -->
+				<%= f.hidden_field :user_id, :value => current_user.id %>
+				<!-- sets the post_id equal to the id of @post, which is defined in the controller -->
+				<%= f.hidden_field :post_id, :value => @post.id %>
+				<%= f.label :comment, :value => "Add Comment" %>
+				<%= f.text_field :comment %>
+				<%= f.submit :value => "Create"%>
+			<% end %>
+		<% end %>
+	</div>
 	<div id="comments">
 		<h4>Comments </h4> 
 		<% @comments.each do |c| %> 
 			<div>
-				<p class="snug subtitle"><%= c.user.username %><p>
+				<p class="snug subtitle"><%= c.post.user.username %><p>
 				<p class="snug"><%= c.comment %></p>
 			</div>
 		<% end %>
 	</div>
-	<% if current_user %>
-		<!-- creates a form for a new comment -->
-		<%= form_for([@post, @post.comments.build]) do |f| %>
-			<!-- sets the user_id equal to the id of the current_user -->
-			<%= f.hidden_field :user_id, :value => current_user.id %>
-			<!-- sets the post_id equal to the id of @post, which is defined in the controller -->
-			<%= f.hidden_field :post_id, :value => @post.id %>
-			<%= f.label :comment, :value => "Add Comment" %>
-			<%= f.text_field :comment %>
-			<%= f.submit :value => "Create"%>
-		<% end %>
-	<% end %>
-
 	<% if current_user.id == @user.id %>
 		<h4><%= link_to "Edit Post", edit_post_path(@post)%></h4>
 		<h4><%= link_to "Delete Post", @post, method: :delete %> </h4>

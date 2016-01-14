@@ -9,7 +9,8 @@
 			<p>
 				If so, please enter your password
 			</p>
-			<%= form_for(@user, method: :delete) do |d| %>
+			<!-- note: form doesn't actually matter at the moment -->
+			<%= form_for(verify_user_path) do |d| %>
 				<%= d.label :password1, "Password" %>
 				<%= d.password_field :password1, :class => "user_input" %>
 				<br> 
@@ -18,8 +19,8 @@
 				<%= d.password_field :password2, :class => "user_input" %>
 				<br> 
 				<br>
-				<%= d.submit "Delete Account", :class => "delete_button"%>
 			<% end %>
+			<%= link_to "Delete Account", @user, method: :delete, :class => "delete_button" %>
 		</div>
 		<h1>Edit User</h1>
 		<%= form_for @user do |f|%>
@@ -41,6 +42,8 @@
 			<br>
 			<%= f.submit :class => "button" %>
 		<% end %>
+		<br>
+		<br>
 		<button id="delete_button" class="button">Delete User</button>
 	</div>
 </div>

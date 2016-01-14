@@ -2,13 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #login {
-	width: 30%;
+	width: 300px;
+	height: 200px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20vh;
 	background-color: #ffffff;
 	padding: 15px;
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 #login h1 {
@@ -30,4 +32,5 @@
 	font-weight: 700;
 	margin-top: 10px;
 	margin-left: 150px;
+	float: right;
 }
