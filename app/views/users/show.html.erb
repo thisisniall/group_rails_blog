@@ -3,7 +3,7 @@
 		<h1 class="snug"> <%= @user.username %></h1>
 		<h3 class="snug"> <%= @user.fname %> <%= @user.lname %></h3>
 		<% if current_user.id == @user.id %>
-				<%= link_to "Edit User Info", edit_user_path %>
+				<p><%= link_to "Edit User Info", edit_user_path %></p>
 		<% end %>
 		<!--users page follow/unfollow-->
 		<% if current_user.id != @user.id %>
@@ -18,7 +18,7 @@
 	<div class="user_posts">
 		<% @post.each do |p| %>
 			<div class="user_post">
-				<h4 class="snug"><%= link_to p.title, p %></h4>
+				<h2 class="snug"><%= link_to p.title, p %></h2>
 				<p class="snug"><%= p.content %></p>
 				<p class="snug"> <%= time_ago_in_words(p.created_at)%> ago</p>
 			</div>

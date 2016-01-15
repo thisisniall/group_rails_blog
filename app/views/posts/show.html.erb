@@ -7,7 +7,7 @@
 	<div id="new_comment">
 		<% if current_user %>
 			<!-- creates a form for a new comment -->
-			<%= form_for([@post, @newcomment]) do |f| %>
+			<%= form_for([@post, @post.comments.build]) do |f| %>
 				<!-- sets the user_id equal to the id of the current_user -->
 				<%= f.hidden_field :user_id, :value => current_user.id %>
 				<!-- sets the post_id equal to the id of @post, which is defined in the controller -->
