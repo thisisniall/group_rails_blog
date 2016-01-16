@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-		@post.update(params[:post])
+		@post.update(post_params)
 		@post.save
 		redirect_to @post
 	end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to posts_path
+		redirect_to '/'
 	end
 	
 	def time_ago_in_words(from_time)

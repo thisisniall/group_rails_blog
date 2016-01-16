@@ -1,26 +1,31 @@
 <div id="page">
 	<div class = 'userinfo'>
-		<h1 class="snug"> <%= @user.username %></h1>
-		<h3 class="snug"> <%= @user.fname %> <%= @user.lname %></h3>
-		<% if current_user.id == @user.id %>
-				<%= link_to "Edit User Info", edit_user_path %>
-		<% end %>
-		<!--users page follow/unfollow-->
-		<% if current_user.id != @user.id %>
-			<% if Relationship.where(followed_id: @user.id, follower_id: current_user.id).first == nil %>
-		 		<%=link_to("follow", follow_path(@user), method: :post)%>
-			<% else %>
-			    <%=link_to("unfollow", unfollow_path(@user), method: :post)%>
+		<div id="left">
+			<%= image_tag(@user.avatar.user) %>
+		</div>
+		<div id="userinfotext">
+			<h1 class="snug"> <%= @user.username %></h1>
+			<h3 class="snug"> <%= @user.fname %> <%= @user.lname %></h3>
+			<% if current_user.id == @user.id %>
+					<%= link_to "Edit User Info", edit_user_path %>
 			<% end %>
-		<%end%>	
-		<!--end -->
+			<!--users page follow/unfollow-->
+			<% if current_user.id != @user.id %>
+				<% if Relationship.where(followed_id: @user.id, follower_id: current_user.id).first == nil %>
+			 		<%=link_to("follow", follow_path(@user), method: :post)%>
+				<% else %>
+				    <%=link_to("unfollow", unfollow_path(@user), method: :post)%>
+				<% end %>
+			<%end%>	
+			<!--end -->
+		</div>
 	</div>
 	<div class="user_posts">
-		<% @post.each do |p| %>
+		<% @post.reverse.each do |p| %>
 			<div class="user_post">
-				<h4 class="snug"><%= link_to p.title, p %></h4>
+				<p class="underline subtitle"><%= link_to p.title, p %></p>
 				<p class="snug"><%= p.content %></p>
-				<p class="snug"> <%= time_ago_in_words(p.created_at)%> ago</p>
+				<p class> <%= time_ago_in_words(p.created_at)%> ago</p>
 			</div>
 		<% end %>
 	</div>	

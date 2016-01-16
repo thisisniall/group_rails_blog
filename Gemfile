@@ -22,6 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Hopefully allow us to upload images to use as profile pics
+gem 'carrierwave', '~> 0.10.0'
+# need mini-magick to resize images for use as various elements throughout the site
+gem 'mini_magick', '~> 4.3', '>= 4.3.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
