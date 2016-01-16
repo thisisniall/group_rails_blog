@@ -3,16 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .userinfo {
 	width: 70%;
+	height: 300px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 3vh;
 	background-color: #ffffff;
 	padding: 20px;
 	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
+
+}
+
+#userinfotext {
+	padding-left: 15px;
+	float: left;
+	margin-top: 225px;
 }
 
 .user_posts {
-	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .user_post {
@@ -23,7 +31,14 @@
 	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	background-color: #ffffff;
 	margin-top: 20px;
+}
 
+#left {
+	float: left;
+}
+
+#right {
+	float: right;
 }
 
 label {
@@ -41,7 +56,7 @@ label {
 	width: 33%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20vh;
+	margin-top: 5vh;
 	background-color: #ffffff;
 	padding: 20px;
 	height: 300px;
@@ -113,4 +128,26 @@ label {
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#upload_container {
+	float: right;
+	position: relative;
+}
+
+.upload_wrapper {
+	position: absolute;
+	z-index: 2;
+	float: right;
+	opacity: 0;
+}
+
+#upload_button {
+	position: relative;
+	z-index: 1;
+	border: 2px solid black;
+	padding: 2px;
+	font-size: 13px;
+	background-color: #ffffff;
+	font-weight: 700;
 }

@@ -46,4 +46,27 @@
 		<br>
 		<button id="delete_button" class="button">Delete User</button>
 	</div>
+	<div id="avatar_upload">
+		<%= form_for @user, :html => {:multipart => true} do |f| %>
+		  <p>
+		    <h2>My Avatar</h2>
+		    <!-- displays the users avatar if they already have one uploaded -->
+		    <%= image_tag(@user.avatar.profile) if @user.avatar? %>
+		    <br>
+		    <br>
+		    <%= f.label :remote_avatar_url, "Image URL" %>
+		    <%= f.text_field :remote_avatar_url, :class => "user_input" %>
+		    <br>
+		    <br>
+		    <div id="upload_container">
+			    <div class="upload_wrapper">
+			        <%= f.file_field :avatar%>
+			    </div>
+			    <button class="button">Select a file</button>
+			</div>
+		    <%= f.hidden_field :avatar_cache %>
+		    <%= f.submit :class => "button top_space" %>
+		  </p>
+		<% end %>
+	</div>
 </div>

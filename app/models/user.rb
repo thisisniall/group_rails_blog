@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
+	# so the user can see a preview of the image they're uploading 
+	attr_accessor :avatar_cache
+
 	has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
+
+	# thank you carrierwave documentation for your kind words and encouragement
+	mount_uploader :avatar, AvatarUploader
 
 	# below join table work uses http://nycda.com/blog/followings-in-sinatra/ HEAVILY as reference - of course we're attempting to use it rails rather than sinatra
 
