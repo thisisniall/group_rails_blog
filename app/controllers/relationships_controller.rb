@@ -2,13 +2,13 @@ class RelationshipsController < ApplicationController
 	def create
 		@relationship = Relationship.new(follower_id: current_user.id, followed_id: params[:id])
 		@relationship.save
-		redirect_to '/'
+		redirect_to :back
 	end
 
 	def destroy
 		@relationshipend = Relationship.find_by(follower_id: current_user.id, followed_id: params[:id])
 		@relationshipend.destroy
-		redirect_to '/'
+		redirect_to :back
 	end
 
 	private
