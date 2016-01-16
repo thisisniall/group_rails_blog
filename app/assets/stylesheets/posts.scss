@@ -1,9 +1,36 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#posts_page {
+#post_page {
+	margin-left: auto;
+	margin-right: auto;
 	width: 60%;
-	margin: 0 auto;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	padding: 20px;
+}
+
+.postbutton{
+	border: 2px solid black;
+	padding: 2px;
+	font-size: 13px;
+	background-color: white;
+	float: right;
+	font-weight: 700;
+	margin-right: 20px;
+	margin-top: -20px;
+
+}
+
+#post_img {
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
+#post_name {
+	display: inline-block;
 }
 
 .subtitle {
@@ -11,38 +38,59 @@
 	font-weight: 700;
 }
 
-#comments {
-	padding-top: 20px;
+#newcomment {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 48%;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	padding: 20px;
+	height: 120px;
 }
 
-#comments div {
+
+
+#edit_post {
+	padding: 20px;
+	padding-bottom: 105px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ffffff;
+	width: 430px;
+	margin-top: 15px;
+	background-color: #ffffff;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.edit_post_input {
+	border: 1px solid #000000;
+	float: right;
+	font-size: 15px;
+}
+
+.comment {
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	padding: 20px;
 	margin-bottom: 20px;
 }
 
-#newpostpage {
-	padding: 15px;
-	min-width: 400px;
-	clear: both;
-	border: 1px solid #ffffff;
-	height: 260px;
-	width: 40%;
-	margin-top: 15vh;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #ffffff;
-	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+.comment_img {
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	overflow: hidden;
 }
 
-#editpostpage {
-	padding: 15px;
-	min-width: 400px;
-	clear: both;
-	border: 1px solid #ffffff;
-	height: 260px;
-	width: 40%;
-	margin-top: 15vh;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #ffffff;
-	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+.comment_name {
+	display: inline-block;
+}
+
+.commentinfo {
+	margin-left: 20px;
+
 }

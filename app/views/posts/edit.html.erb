@@ -1,15 +1,14 @@
-
 <div id="page">
-	<div id="editpostpage">
+	<div id="edit_post">
 		<h1>Edit Post</h1>
 		<%= form_for @post do |p| %>
 			<%= p.label :title %>
-			<%= p.text_field :title, :class => "user_input"%>
+			<%= p.text_field :title, :class => "user_input" %>
 			<br>
 			<br>
 			<%= p.label :content %>
-			<%= p.text_area :content, cols: "35", rows: "5", :class => "text_area" %>
-			<%= p.submit :class => "button top_space" %>
+			<%= p.text_area :content, :rows => 4, :cols => 40, :class => "edit_post_input"  %>
+			<%= p.submit :class => 'button top_space' %>
 		<% end %>
 	</div>
 </div>

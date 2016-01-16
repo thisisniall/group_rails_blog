@@ -2,6 +2,8 @@
 	<div class='lcolumn'>
 		<div id="profile_card">
 			<div id="user_img">
+				<!-- checks the user table for an avatar, if there is one it displays the profile version -->
+				<%= image_tag(current_user.avatar.profile, :class => "img") %>
 			</div>
 			<div id="user_name">
 				<h2 class="snug"><%= link_to current_user.username, current_user %></h2>
@@ -49,13 +51,23 @@
 	<div class='feed'>
 		<% @posts.reverse.each do |p| %>
 			<div class='posts'>
-				<h2 class="snug underline"><%= link_to p.title, p %></h2>
-				<h3 class="snug">by <%= link_to p.user.username, p.user %></h3>
+				<div class="post_img">
+					<%= image_tag(p.user.avatar.thumb, :class => "img") %>
+				</div>
+				<div class="post_name">
+					<h2 class="snug underline">
+						<%= link_to p.title, p %>
+					</h2>
+					<h3 class="snug">
+						by <%= link_to p.user.username, p.user %>
+					</h3>
+				</div>
 				<!-- calls the time_ago_in_words function and passes it the created_at attribute of the post being rendered -->
-				<p class="snug"> <%= time_ago_in_words(p.created_at) %> </p>
+				<p class="snug"> <%= time_ago_in_words(p.created_at) + " ago" %> </p>
 				<p> <%= p.content %> </p>
-				<p><%= p.comments.count %> Comments</p>
-
+				<p class="snug">
+					<%= p.comments.count %> Comments
+				</p>
 			</div>
 		<% end %>
 	</div>

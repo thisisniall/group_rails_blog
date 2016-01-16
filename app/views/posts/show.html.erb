@@ -1,10 +1,22 @@
 <div id="page">
 	<div id="post_page">
-		<h1><%= @post.title %></h1>
-		<p class="subtitle">by <%= @post.user.username %></p>
+		<div id="post_img">
+			<%=image_tag(@post.user.avatar.profile, :class => "img")%>
+		</div>
+		<div id="post_name">
+			<h1 class="snug"><%= @post.title %></h1>
+			<p class="snug subtitle">by <%= link_to @post.user.username, @post.user %></p>
+		</div>
 		<p id="content"> <%= @post.content %><p>
+		<p class="snug"><%= time_ago_in_words(@post.created_at) +' ago' %></p>
+		<% if current_user.id == @user.id %>
+			<h4>
+				<%= link_to "Edit Post", edit_post_path(@post), class: "postbutton"%> 
+				<%= link_to "Delete Post", @post, method: :delete, class: "postbutton" %>
+			</h4>
+		<% end %>
 	</div>
-	<div id="new_comment">
+	<div id="newcomment">
 		<% if current_user %>
 			<!-- creates a form for a new comment -->
 			<%= form_for([@post, @post.comments.build]) do |f| %>
@@ -13,28 +25,36 @@
 				<!-- sets the post_id equal to the id of @post, which is defined in the controller -->
 				<%= f.hidden_field :post_id, :value => @post.id %>
 				<%= f.label :comment, :value => "Add Comment" %>
-				<%= f.text_field :comment %>
-				<%= f.submit :value => "Create" %>
+				<%= f.text_area :comment, :cols =>30, :rows =>4, :class => "user_input"%>
+				<%= f.submit :value => "Create", :class => "button top_space" %>
 			<% end %>
 		<% end %>
 	</div>
 	<div id="comments">
-		<h4>Comments </h4> 
-
+		<h2 class="comment center">
+			Comments
+		</h2> 
 		<% @comments.each do |c| %> 
 <!-- 		The below if loop is necessary to avoid a conflict where our use of .build creates - but does not save to the database a premature comment - which comments.each nevertheless attempts to load. this comment has values of nil for all values, making every method break. -->
 			<% if @comments.last != c %>
-				<div>
-					<p class="snug subtitle"><%= c.user.username %></p>
-					<p class="snug"><%= c.comment %></p>
-					<p class="snug"><%= time_ago_in_words(c.created_at) +' ago' %></p>
+				<div class="comment">
+					
+					<div class="commentinfo">
+						<div class="comment_img">
+							<%= image_tag(c.user.avatar.thumb, :class => "img")%>
+						</div>
+						<div class="comment_name">
+							 <p class="subtitle">
+							 	<%= link_to c.user.username, c.user %>
+							 </p>
+						</div>
+						<p class="snug"><%= c.comment %></p>
+						<br>
+						<p class="snug"><%= time_ago_in_words(c.created_at) +' ago' %></p>
+					</div>
 				</div>
 			<% end %>
 		<% end %>
 	</div>
-	<% if current_user.id == @user.id %>
-		<h4><%= link_to "Edit Post", edit_post_path(@post)%></h4>
-		<h4><%= link_to "Delete Post", @post, method: :delete %> </h4>
-	<% end %>
 </div>
 

@@ -22,9 +22,7 @@ $(document).ready(function(){
 	$('.flash').fadeOut(5000);
 
 	$('#delete_button').on('click', function(){
-		$('#delete_confirm').fadeIn(200).animate({
-			'margin-top': '-25px',
-		});
+		$('#delete_confirm').fadeIn(200);
 		$('#modal').fadeIn(500);
 	});
 
