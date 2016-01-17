@@ -1,8 +1,15 @@
-<%= form_for @post do |p| %>
-	<%= p.label :title %>
-	<%= p.text_field :title %>
-	<%= p.label :content %>
-	<%= p.text_area :content %>
-	<%= p.hidden_field :user_id, :value => @user.id %>
-	<%= p.submit %>
-<% end %>
+<div id="page">
+	<div id="newpostpage">
+		<h1>New Post</h1>
+		<%= form_for @post do |p| %>
+			<%= p.label :title %>
+			<%= p.text_field :title, :class => "user_input"%>
+			<br>
+			<br>
+			<%= p.label :content %>
+			<%= p.text_area :content, cols: "35", rows: "5", :class => "text_area" %>
+			<%= p.hidden_field :user_id, :value => @user.id %>
+			<%= p.submit :class => "button top_space" %>
+		<% end %>
+	</div>
+</div>

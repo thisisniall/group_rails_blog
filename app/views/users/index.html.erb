@@ -1,10 +1,10 @@
-<h1>All Users</h1>
 <div id="page">
+	<h1 class="userinfo">All Users</h1>
 	<% @users.each do |u| %>
 		<div class = 'userinfo'>
-			<h4>Username:</h4> <%= link_to u.username, u %>
-			<h4>First Name:</h4> <%= u.fname %>
-			<h4>Last Name:</h4> <%= u.lname %>
+			<h2 class="snug"><%= link_to u.username, u %> </h2> 
+			<h4 class="snug"><%= u.fname %>  <%= u.lname %></h4>
+			<p class="snug">Number of posts: <%= u.posts.count %><p>
 		</div>
 	<% end %>
 </div>
